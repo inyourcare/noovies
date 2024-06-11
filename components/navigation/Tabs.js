@@ -4,6 +4,7 @@ import Movies from '../screens/Movies';
 import Search from '../screens/Search';
 import Tv from '../screens/Tv';
 import { useColorScheme } from 'react-native'
+import colors from '../../colors';
 
 const Tab = createBottomTabNavigator();
 const Tabs = () => {
@@ -15,18 +16,18 @@ const Tabs = () => {
                 // backgroundColor: "tomato"
             },
             tabBarLabelPosition: "beside-icon",
-            tabBarActiveTintColor: isDark ? "#ffa801" : "black",
+            tabBarActiveTintColor: isDark ? colors.YELLOW_COLOR : colors.BLACK_COLOR,
             tabBarInactiveTintColor: isDark ? "#d2dae2" : "#808e9b",
             tabBarStyle: {
-                backgroundColor: isDark ? '#1e272e' : 'tomato'
+                backgroundColor: isDark ? colors.BLACK_COLOR : 'tomato'
             },
 
             headerTitleStyle: {
-                color: isDark ? "#ffa801" : "#1e272e"
+                color: isDark ? colors.YELLOW_COLOR : colors.BLACK_COLOR
                 // headerRight: () => <View><Text>hello</Text></View>
             },
             headerStyle: {
-                backgroundColor: isDark ? "#1e272e" : "white"
+                backgroundColor: isDark ? colors.BLACK_COLOR : "white"
             }
         }}>
             <Tab.Screen name="Movies" component={Movies}
