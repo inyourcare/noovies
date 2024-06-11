@@ -1,11 +1,12 @@
 import AppLoading from 'expo-app-loading';
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 // import * as Font from "expo-font"
-import { useFonts } from "expo-font"
-import { Ionicons } from "@expo/vector-icons"
-import { Asset, useAssets } from 'expo-asset'
+import { Ionicons } from "@expo/vector-icons";
+import { NavigationContainer } from '@react-navigation/native';
+import { useAssets } from 'expo-asset';
+import { useFonts } from "expo-font";
+import Tabs from './components/navigation/Tabs';
 
 // const loadFonts = (fonts) => fonts.map(font => Font.loadAsync(font))
 // const loadAssets = (assets) => assets.map(asset => {
@@ -38,7 +39,11 @@ export default function App() {
     // onError={console.error}
     />)
   }
-  return (<Text>We are done loading</Text>)
+  return (
+    <NavigationContainer>
+      <Tabs />
+    </NavigationContainer>
+  )
 }
 
 const styles = StyleSheet.create({
