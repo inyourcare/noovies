@@ -6,10 +6,33 @@ import Tv from '../screens/Tv';
 
 const Tab = createBottomTabNavigator();
 const Tabs = () => (
-    <Tab.Navigator>
-        <Tab.Screen name="Movies" component={Movies} />
-        <Tab.Screen name="Tv" component={Search} />
-        <Tab.Screen name="Search" component={Tv} />
+    <Tab.Navigator screenOptions={{
+        tabBarLabelStyle: {
+            // backgroundColor: "tomato"
+        },
+        tabBarLabelPosition: "beside-icon",
+        tabBarActiveTintColor: "red",
+        tabBarInactiveTintColor: "#555",
+        tabBarStyle: {
+            backgroundColor: 'tomato'
+        },
+
+        headerTitleStyle: {
+            color: '#369',
+            // headerRight: () => <View><Text>hello</Text></View>
+        }
+    }}>
+        <Tab.Screen name="Movies" component={Movies}
+            options={{
+                tabBarLabelStyle: {
+                    // backgroundColor: "purple"
+                },
+                // tabBarBadge: 5
+                // tabBarBadge: "hello",
+            }}
+        />
+        <Tab.Screen name="Search" component={Search} />
+        <Tab.Screen name="Tv" component={Tv} />
     </Tab.Navigator>
 )
 
