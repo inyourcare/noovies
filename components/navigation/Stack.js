@@ -20,6 +20,9 @@ const ScreenThree = ({ navigation: { navigate, goBack, setOptions } }) => (
         <TouchableOpacity onPress={() => setOptions({ title: 'Hello' })}>
             <Text>ChangeTitle</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigate("Tabs", { screen: "Search" })}>
+            <Text>Go To Tabs</Text>
+        </TouchableOpacity>
     </>)
 
 const NativeStack = createNativeStackNavigator();

@@ -6,6 +6,7 @@ import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import Tabs from './components/navigation/Tabs';
+import Root from './components/navigation/Root';
 
 // const loadFonts = (fonts) => fonts.map(font => Font.loadAsync(font))
 // const loadAssets = (assets) => assets.map(asset => {
@@ -92,8 +93,9 @@ export default function App() {
       <View style={{ flex: 1 }}
         onLayout={onLayoutRootView}>
         <NavigationContainer theme={isDark ? DarkTheme : DefaultTheme}>
-          <Tabs />
+          {/* <Tabs /> */}
           {/* <Stack /> */}
+          <Root />
         </NavigationContainer>
       </View>
       {/* <View
