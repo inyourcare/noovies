@@ -7,23 +7,26 @@ import { useColorScheme } from 'react-native'
 
 const Tab = createBottomTabNavigator();
 const Tabs = () => {
-    const colorScheme = useColorScheme();
-    console.log(colorScheme)
+    const isDark = useColorScheme() === "dark";
+
     return (
         <Tab.Navigator screenOptions={{
             tabBarLabelStyle: {
                 // backgroundColor: "tomato"
             },
             tabBarLabelPosition: "beside-icon",
-            tabBarActiveTintColor: "red",
-            tabBarInactiveTintColor: "#555",
+            tabBarActiveTintColor: isDark ? "#ffa801" : "black",
+            tabBarInactiveTintColor: isDark ? "#d2dae2" : "#808e9b",
             tabBarStyle: {
-                backgroundColor: 'tomato'
+                backgroundColor: isDark ? '#1e272e' : 'tomato'
             },
 
             headerTitleStyle: {
-                color: '#369',
+                color: isDark ? "#ffa801" : "#1e272e"
                 // headerRight: () => <View><Text>hello</Text></View>
+            },
+            headerStyle: {
+                backgroundColor: isDark ? "#1e272e" : "white"
             }
         }}>
             <Tab.Screen name="Movies" component={Movies}
