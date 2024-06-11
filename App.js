@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, useColorScheme } from 'react-native';
 // import * as Font from "expo-font"
 import { Ionicons } from "@expo/vector-icons";
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import Tabs from './components/navigation/Tabs';
@@ -39,6 +39,7 @@ export default function App() {
   //   />)
   // }
   const [appIsReady, setAppIsReady] = useState(false);
+  // const [isDark, setIsDark] = useState(useColorScheme() === "dark");
 
   useEffect(() => {
     async function prepare() {
@@ -76,6 +77,7 @@ export default function App() {
     }
   }, [appIsReady]);
 
+  const isDark = useColorScheme() === 'dark'
   if (!appIsReady) {
     return (
       // <View>
@@ -89,7 +91,7 @@ export default function App() {
     <>
       <View style={{ flex: 1 }}
         onLayout={onLayoutRootView}>
-        <NavigationContainer>
+        <NavigationContainer theme={isDark ? DarkTheme : DefaultTheme}>
           <Tabs />
         </NavigationContainer>
       </View>
