@@ -45,10 +45,6 @@ const Tabs = () => {
             // unmountOnBlur: true
         })}>
 
-            <Tab.Screen name="Search" component={Search}
-                options={{
-                    tabBarIcon: ({ focused, color, size }) => { return <Ionicons name={focused ? 'search' : 'search-outline'} color={color} size={size} /> }
-                }} />
             <Tab.Screen name="Movies" component={Movies}
                 options={{
                     tabBarLabelStyle: {
@@ -59,6 +55,10 @@ const Tabs = () => {
                     tabBarIcon: ({ color, size }) => (<Ionicons name="film" color={color} size={size} />)
                 }}
             />
+            <Tab.Screen name="Search" component={Search}
+                options={{
+                    tabBarIcon: ({ focused, color, size }) => { return <Ionicons name={focused ? 'search' : 'search-outline'} color={color} size={size} /> }
+                }} />
             <Tab.Screen name="TV" component={Tv}
                 options={{
                     tabBarIcon: ({ color, size }) => { return <Ionicons name='tv' color={color} size={size} /> }

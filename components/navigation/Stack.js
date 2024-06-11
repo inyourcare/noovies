@@ -20,7 +20,7 @@ const ScreenThree = ({ navigation: { navigate, goBack, setOptions } }) => (
         <TouchableOpacity onPress={() => setOptions({ title: 'Hello' })}>
             <Text>ChangeTitle</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigate("Tabs", { screen: "Search" })}>
+        <TouchableOpacity onPress={() => navigate("Tabs", { screen: "Movies" })}>
             <Text>Go To Tabs</Text>
         </TouchableOpacity>
     </>)
