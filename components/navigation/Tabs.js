@@ -6,6 +6,7 @@ import colors from '../../colors';
 import { useColorScheme } from 'react-native';
 import Search from '../screens/Search';
 import { Ionicons } from "@expo/vector-icons";
+import Stack from './Stack';
 
 const Tab = createBottomTabNavigator();
 const Tabs = () => {
@@ -56,9 +57,14 @@ const Tabs = () => {
                 options={{
                     tabBarIcon: ({ focused, color, size }) => { return <Ionicons name={focused ? 'search' : 'search-outline'} color={color} size={size} /> }
                 }} />
-            <Tab.Screen name="TV" component={Tv}
+            {/* <Tab.Screen name="TV" component={Tv}
                 options={{
                     tabBarIcon: ({ color, size }) => { return <Ionicons name='tv' color={color} size={size} /> }
+                }} /> */}
+            <Tab.Screen name="TV" component={Stack}
+                options={{
+                    tabBarIcon: ({ color, size }) => { return <Ionicons name='tv' color={color} size={size} /> },
+                    headerShown: false,
                 }} />
         </Tab.Navigator>
     )

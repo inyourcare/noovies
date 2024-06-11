@@ -1,12 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { StyleSheet, Text, View, useColorScheme } from 'react-native';
+import { StyleSheet, View, useColorScheme } from 'react-native';
 // import * as Font from "expo-font"
 import { Ionicons } from "@expo/vector-icons";
-import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
+import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import Tabs from './components/navigation/Tabs';
-import Stack from './components/navigation/Stack';
 
 // const loadFonts = (fonts) => fonts.map(font => Font.loadAsync(font))
 // const loadAssets = (assets) => assets.map(asset => {
@@ -93,8 +92,8 @@ export default function App() {
       <View style={{ flex: 1 }}
         onLayout={onLayoutRootView}>
         <NavigationContainer theme={isDark ? DarkTheme : DefaultTheme}>
-          {/* <Tabs /> */}
-          <Stack />
+          <Tabs />
+          {/* <Stack /> */}
         </NavigationContainer>
       </View>
       {/* <View
