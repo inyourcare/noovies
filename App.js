@@ -54,33 +54,45 @@ export default function App() {
         console.warn(e);
       } finally {
         // Tell the application to render
+        // console.log('hi3')
         setAppIsReady(true);
       }
     }
-
+    // console.log('hi1')
     prepare();
+    // console.log('hi2', appIsReady)
   }, []);
 
   const onLayoutRootView = useCallback(async () => {
+    // console.log('onLayoutRootView callback')
     if (appIsReady) {
       // This tells the splash screen to hide immediately! If we call this after
       // `setAppIsReady`, then we may see a blank screen while the app is
       // loading its initial state and rendering its first pixels. So instead,
       // we hide the splash screen once we know the root view has already
       // performed layout.
+      // console.log('hideasync')
       await SplashScreen.hideAsync();
     }
   }, [appIsReady]);
 
   if (!appIsReady) {
-    return null;
+    return (
+      // <View>
+      //   <Text>app is not ready</Text>
+      // </View>
+      null
+    )
   }
 
   return (
     <>
-      <NavigationContainer>
-        <Tabs onLayout={onLayoutRootView} />
-      </NavigationContainer>
+      <View style={{ flex: 1 }}
+        onLayout={onLayoutRootView}>
+        <NavigationContainer>
+          <Tabs />
+        </NavigationContainer>
+      </View>
       {/* <View
         style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
         onLayout={onLayoutRootView}>
