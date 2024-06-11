@@ -17,9 +17,9 @@ const Tabs = () => {
             },
             tabBarLabelPosition: "beside-icon",
             tabBarActiveTintColor: isDark ? colors.YELLOW_COLOR : colors.BLACK_COLOR,
-            tabBarInactiveTintColor: isDark ? "#d2dae2" : "#808e9b",
+            tabBarInactiveTintColor: isDark ? colors.DARK_GRAY : colors.LIGHT_GRAY,
             tabBarStyle: {
-                backgroundColor: isDark ? colors.BLACK_COLOR : 'tomato'
+                backgroundColor: isDark ? colors.BLACK_COLOR : colors.TOMATO
             },
 
             headerTitleStyle: {
@@ -27,7 +27,7 @@ const Tabs = () => {
                 // headerRight: () => <View><Text>hello</Text></View>
             },
             headerStyle: {
-                backgroundColor: isDark ? colors.BLACK_COLOR : "white"
+                backgroundColor: isDark ? colors.BLACK_COLOR : colors.WHITE
             }
         }}>
             <Tab.Screen name="Movies" component={Movies}
