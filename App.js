@@ -1,12 +1,18 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { StyleSheet, View, useColorScheme } from 'react-native';
+import React, { useCallback, useEffect, useState } from "react";
+import { StyleSheet, View, useColorScheme } from "react-native";
 // import * as Font from "expo-font"
 import { Ionicons } from "@expo/vector-icons";
-import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
-import * as Font from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
-import Tabs from './components/navigation/Tabs';
-import Root from './components/navigation/Root';
+import {
+  DarkTheme,
+  DefaultTheme,
+  NavigationContainer,
+} from "@react-navigation/native";
+import * as Font from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+import Tabs from "./components/navigation/Tabs";
+import Root from "./components/navigation/Root";
+import { ThemeProvider } from "styled-components/native";
+import { darkTheme, lightTheme } from "./styled";
 
 // const loadFonts = (fonts) => fonts.map(font => Font.loadAsync(font))
 // const loadAssets = (assets) => assets.map(asset => {
@@ -51,7 +57,7 @@ export default function App() {
         await Font.loadAsync(Ionicons.font);
         // Artificially delay for two seconds to simulate a slow loading
         // experience. Please remove this if you copy and paste the code!
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise((resolve) => setTimeout(resolve, 2000));
       } catch (e) {
         console.warn(e);
       } finally {
@@ -78,26 +84,28 @@ export default function App() {
     }
   }, [appIsReady]);
 
-  const isDark = useColorScheme() === 'dark'
+  const isDark = useColorScheme() === "dark";
   if (!appIsReady) {
     return (
       // <View>
       //   <Text>app is not ready</Text>
       // </View>
       null
-    )
+    );
   }
 
   return (
     <>
-      <View style={{ flex: 1 }}
-        onLayout={onLayoutRootView}>
-        <NavigationContainer theme={isDark ? DarkTheme : DefaultTheme}>
-          {/* <Tabs /> */}
-          {/* <Stack /> */}
-          <Root />
-        </NavigationContainer>
-      </View>
+      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+        <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+          {/* <NavigationContainer theme={isDark ? DarkTheme : DefaultTheme}> */}
+          <NavigationContainer>
+            {/* <Tabs /> */}
+            {/* <Stack /> */}
+            <Root />
+          </NavigationContainer>
+        </View>
+      </ThemeProvider>
       {/* <View
         style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
         onLayout={onLayoutRootView}>
@@ -105,14 +113,14 @@ export default function App() {
         <Ionicons name="rocket" size={30} />
       </View> */}
     </>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
